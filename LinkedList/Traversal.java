@@ -29,7 +29,7 @@ public class Traversal {
 
         Node temp = head;
         while(temp != null){
-            System.out.print(temp.data + " ");
+            System.out.print(temp.data + "->");
             temp = temp.next;
         }
 
