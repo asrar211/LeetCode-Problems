@@ -1,20 +1,21 @@
-public public class Solution {
+public class Solution {
     public ListNode detectCycle(ListNode head) {
-        Map<ListNode, Integer> mpp = Map<>();
-        if(head == null){
-            return null;
-        }
+        ListNode slow= head;
+        ListNode fast = head;
 
-        ListNode temp = head;
-        while(temp != null){
-            if(mpp.containsKey(temp)){
-                return temp;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                slow= head;
+                while(slow != fast){
+                    slow= slow.next;
+                    fast= fast.next;
+                }
+                return slow;
             }
-            mpp.put(temp,1);
-            temp =temp.next;
         }
         return null;
     }
-} {
-    
 }
